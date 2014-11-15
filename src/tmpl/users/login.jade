@@ -1,0 +1,25 @@
+.page-header
+  h1 Login
+
+form.form-horizontal(method='post', name='login.form', ng-submit='login.submit(login.form)', api-validate, novalidate)
+  div(style='display:none')
+    input(name='next', type='hidden', ng-model='next')
+  .form-group.email(ng-class="{'has-error': login.form.hasError('email')}")
+    label.control-label.col-sm-2.required(for='email') Email
+    .col-sm-10.col-md-8
+      input#email.form-control(name='email', placeholder='Email', required='required', type='email', ng-model='login.email')
+      span.help-block(ng-show="login.form.hasErrorMessage('email')", ng-bind='login.form.email.$error.message')
+  .form-group.password(ng-class="{'has-error': login.form.hasError('password')}")
+    label.control-label.col-sm-2.required(for='password') Password
+    .col-sm-10.col-md-8
+      input#password.form-control(name='password', placeholder='Password', required='required', type='password', ng-model='login.password')
+      span.help-block(ng-show="login.form.hasErrorMessage('password')", ng-bind='login.form.password.$error.message')
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      button.btn.btn-default(type='submit') Login
+ul
+  li
+    a(href='#/users/forgot_password.html') Forgot Password
+  li
+    a(href='#/users/register.html') Register
+

@@ -1,0 +1,55 @@
+{
+  "name": "coffeescript-angularjs-starter",
+  "private": true,
+  "version": "0.0.0",
+  "description": "AngualrJS CoffeeScript web client starter app.",
+  "repository": "",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "~1.8",
+    "grunt-cli": "~0.1.13"
+  },
+  "devDependencies": {
+    "bower": "~1.3.12",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-jade": "~0.13.0",
+    "grunt-contrib-coffee": "~0.11.1",
+    "grunt-contrib-sass": "~0.8.1",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "coffee-script": "~1.8",
+    "jade": "~1.7",
+    "jasmine": "~2.0.1",
+    "karma": "~0.12.24",
+    "karma-cli": "~0.0.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-chrome-launcher": "~0.1.5",
+    "karma-coffee-preprocessor": "~0.2.1",
+    "karma-coverage": "~0.2.6",
+    "protractor": "~1.3.1"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "grunt",
+
+    "prebuild": "npm install",
+    "build": "grunt build",
+
+    "pretest": "npm install",
+    "test": "npm run karma-single-run && npm run protractor-grunt-serve",
+
+    "karma": "karma start karma.conf.coffee",
+
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor protractor.conf.coffee",
+
+    "karma-single-run": "grunt build && karma start karma.conf.coffee --single-run",
+    "protractor-grunt-serve": "grunt serve >/dev/null & PID=$! && npm run protractor && kill $PID >/dev/null 2>&1 || true",
+
+    "postinstall": "bower install"
+  }
+}

@@ -1,0 +1,13 @@
+.page-header
+  h1(ng-bind='app.currentUser().full_name')
+
+dl
+  dt Email:
+  dd(ng-bind='app.currentUser().email')
+  dt Role:
+  dd(ng-bind='app.currentUser().role')
+  dt Last Login:
+  dd(ng-bind='app.currentUser().last_login')
+  dt Authorization Token:
+  dd(ng-bind='app.currentUser().authorization_token')
+
